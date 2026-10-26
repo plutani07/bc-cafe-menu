@@ -2,105 +2,80 @@
 #include <iostream>
 using namespace std;
 
+const string DailyMenu::MEAL_NAMES[4] = {"Breakfast", "Brunch", "Lunch", "Dinner"};
+
+int DailyMenu::mealIndex(string meal) {
+    for (int i = 0; i < 4; i++) {
+        if (MEAL_NAMES[i] == meal) return i;
+    }
+    return -1;
+}
+
 DailyMenu::DailyMenu(string dayName) { day = dayName; }
 
 string DailyMenu::getDay() const { return day; }
 
-vector<MenuItem>* DailyMenu::getMeal(string meal) {
-    if (meal == "Breakfast") return &breakfast;
-    if (meal == "Lunch") return &lunch;
-    if (meal == "Dinner") return &dinner;
-    return nullptr;
-}
-
-const vector<MenuItem>* DailyMenu::getMeal(string meal) const {
-    if (meal == "Breakfast") return &breakfast;
-    if (meal == "Lunch") return &lunch;
-    if (meal == "Dinner") return &dinner;
-    return nullptr;
-}
-
 bool DailyMenu::addItem(string meal, MenuItem item) {
-    vector<MenuItem>* list = getMeal(meal);
-    if (list == nullptr) return false;
-    list->push_back(item);
+    int m = mealIndex(meal);
+    if (m == -1) return false;
+    meals[m].push_back(item);
     return true;
 }
 
-int DailyMenu::itemCount() const {
-    return breakfast.size() + lunch.size() + dinner.size();
+vector<MenuItem> DailyMenu::getMeal(string meal) const {
+    int m = mealIndex(meal);
+    if (m == -1) return vector<MenuItem>();
+    return meals[m];
 }
 
-int DailyMenu::totalCalories(string meal) const {
-    const vector<MenuItem>* list = getMeal(meal);
+int DailyMenu::itemCount() const {
     int total = 0;
-    if (list == nullptr) return 0;
-    for (size_t i = 0; i < list->size(); i++) total += (*list)[i].getCalories();
+    for (int m = 0; m < 4; m++) total += meals[m].size();
     return total;
 }
 
+int DailyMenu::itemCount(string meal) const {
+    int m = mealIndex(meal);
+    return m == -1 ? 0 : meals[m].size();
+}
+
+// Prints one meal grouped by station: main items first, then sides on one line.
 void DailyMenu::displayMeal(string meal) const {
-    const vector<MenuItem>* list = getMeal(meal);
-    if (list == nullptr) return;
-    cout << " " << meal << ":" << endl;
-    if (list->empty()) {
-        cout << "  (nothing listed)" << endl;
-        return;
+    int m = mealIndex(meal);
+    if (m == -1 || meals[m].empty()) return;
+    const vector<MenuItem>& list = meals[m];
+
+    cout << "  --- " << meal << " ---" << endl;
+
+    // Stations in the order they first appear
+    vector<string> stations;
+    for (size_t i = 0; i < list.size(); i++) {
+        bool seen = false;
+        for (size_t s = 0; s < stations.size(); s++) {
+            if (stations[s] == list[i].getStation()) seen = true;
+        }
+        if (!seen) stations.push_back(list[i].getStation());
     }
-    for (size_t i = 0; i < list->size(); i++) (*list)[i].display();
+
+    for (size_t s = 0; s < stations.size(); s++) {
+        cout << " [" << stations[s] << "]" << endl;
+        string sides;
+        for (size_t i = 0; i < list.size(); i++) {
+            if (list[i].getStation() != stations[s]) continue;
+            if (list[i].isSide()) {
+                if (!sides.empty()) sides += ", ";
+                sides += list[i].getName();
+            } else {
+                list[i].display();
+            }
+        }
+        if (!sides.empty()) cout << "    Sides: " << sides << endl;
+    }
 }
 
 void DailyMenu::display() const {
     cout << "===== " << day << " =====" << endl;
-    displayMeal("Breakfast");
-    displayMeal("Lunch");
-    displayMeal("Dinner");
+    if (itemCount() == 0) cout << "  (nothing listed)" << endl;
+    for (int m = 0; m < 4; m++) displayMeal(MEAL_NAMES[m]);
     cout << endl;
-}
-
-void DailyMenu::displayUnderCalories(int limit) const {
-    string meals[3] = {"Breakfast", "Lunch", "Dinner"};
-    for (int m = 0; m < 3; m++) {
-        const vector<MenuItem>* list = getMeal(meals[m]);
-        for (size_t i = 0; i < list->size(); i++) {
-            if ((*list)[i].getCalories() <= limit) {
-                cout << " [" << day << " " << meals[m] << "]" << endl;
-                (*list)[i].display();
-            }
-        }
-    }
-}
-
-bool DailyMenu::displayIfContains(string ingredient) const {
-    bool found = false;
-    string meals[3] = {"Breakfast", "Lunch", "Dinner"};
-    for (int m = 0; m < 3; m++) {
-        const vector<MenuItem>* list = getMeal(meals[m]);
-        for (size_t i = 0; i < list->size(); i++) {
-            if ((*list)[i].hasIngredient(ingredient)) {
-                cout << " [" << day << " " << meals[m] << "]" << endl;
-                (*list)[i].display();
-                found = true;
-            }
-        }
-    }
-    return found;
-}
-
-void DailyMenu::writeTo(ostream& out) const {
-    string meals[3] = {"Breakfast", "Lunch", "Dinner"};
-    for (int m = 0; m < 3; m++) {
-        const vector<MenuItem>* list = getMeal(meals[m]);
-        for (size_t i = 0; i < list->size(); i++) {
-            const MenuItem& item = (*list)[i];
-            out << day << "|" << meals[m] << "|" << item.getName() << "|"
-                << item.getCalories() << "|";
-            vector<string> ing = item.getIngredients();
-            for (size_t j = 0; j < ing.size(); j++) {
-                out << ing[j];
-                if (j + 1 < ing.size()) out << ",";
-            }
-            out << "\n";
-        }
-    }
 }

@@ -1,0 +1,204 @@
+{
+  "source": "Perkins Management Services catering guides (Express, Standard, Flair Platinum). Prices are not listed; contact Catering Services to order.",
+  "office": "Catering office hours: Monday-Friday, 8:30am-5:00pm (College calendar).",
+  "notes": [
+    "Campus groups submit a signed, approved service request 72 hours before the event.",
+    "A 50% deposit is due when you book; the balance is due 24 hours before the event.",
+    "Cancellations need a signed function sheet at least 24 hours before the event.",
+    "Standard service time is two hours; longer events are billed per extra hour.",
+    "Leftover food stays with Perkins for health and safety reasons."
+  ],
+  "guides": [
+    {
+      "id": "express",
+      "name": "Express",
+      "tagline": "Quick, casual packages for meetings and student events",
+      "sections": [
+        {
+          "title": "Breakfast",
+          "items": [
+            { "name": "Continental Breakfast", "desc": "Einstein Bros. Bagels with Cream Cheese, Mini Muffins, Seattle's Best Regular & Decaf Coffee, Hot Water and Assorted Teas" },
+            { "name": "Breakfast Extras", "desc": "Mini Muffins, Einstein Bros. Bagels, Bottled Juice, Seattle's Best Coffee" }
+          ]
+        },
+        {
+          "title": "Lunch & Dinner",
+          "items": [
+            { "name": "Box Lunches", "desc": "Sandwich, Chips, Gourmet Cookie, and Soda or Bottled Water. Bread: White, Wheat, Rye, Kaiser Roll or Onion Roll. Meat: Oven Roasted Turkey, Roast Beef, Honey Baked Ham, Tuna Salad or Vegetable. Includes Lettuce, Tomato, Red Onion, Mayonnaise and Dijon Mustard." },
+            { "name": "Student BBQ", "desc": "Grilled Hamburgers and Hot Dogs, Potato Chips, Gourmet Cookies, Soda and Bottled Water, with Cheese, Lettuce, Tomato, Onion, Pickles and condiments" },
+            { "name": "Fest of Pizza", "desc": "Single-topping Pizzas, Gourmet Cookies, Soda and Bottled Water. Toppings: Extra Cheese, Sausage, Pepperoni, Spinach, Fresh Tomato, Green Pepper, Black Olives or Mushrooms" },
+            { "name": "Single Topping Pizza", "desc": "Serves about five people" }
+          ]
+        },
+        {
+          "title": "Snacks & Extras",
+          "items": [
+            { "name": "Mini Deli Sandwich Platter", "desc": "Assorted pre-made deli sandwiches" },
+            { "name": "Tortilla Chips & Salsa" },
+            { "name": "Potato Chips", "desc": "1 oz individual bags" },
+            { "name": "Goldfish Crackers" },
+            { "name": "Chex Party Mix" },
+            { "name": "Gourmet Roasted Nuts" },
+            { "name": "Seasonal Whole Fruit", "desc": "Bananas, Apples and Oranges" },
+            { "name": "\"Fun Size\" Candies" },
+            { "name": "Fudge Brownies" },
+            { "name": "Gourmet Cookies" }
+          ]
+        },
+        {
+          "title": "Beverages",
+          "items": [
+            { "name": "Canned Sodas", "desc": "Coke, Diet Coke, Sprite" },
+            { "name": "Lemonade" },
+            { "name": "Iced Tea" },
+            { "name": "Fruit Punch" },
+            { "name": "Bottled Water" }
+          ]
+        },
+        {
+          "title": "Groceries To Go",
+          "items": [
+            { "name": "Grill Pack", "desc": "Raw Hamburgers, Veggie Burgers or Hot Dogs, with Burger and Hot Dog Buns" },
+            { "name": "Coleslaw, Potato Salad or Pasta Salad" },
+            { "name": "American Cheese Slices", "desc": "About 32 slices per pound" },
+            { "name": "Condiment Packets" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "standard",
+      "name": "Standard",
+      "tagline": "Full breakfasts, luncheons, buffets and receptions",
+      "sections": [
+        {
+          "title": "Breakfast",
+          "items": [
+            { "name": "Continental Breakfast", "desc": "Muffins, Danish, Breakfast Breads, Mini Croissants, Bagels with Cream Cheese, Butter and Jelly, Bottled Juices, Coffee and Herbal Teas" },
+            { "name": "New Beginnings", "desc": "Jumbo Muffins, Scones, Fruit-Filled Croissants, Fruit Yogurts, Sliced Fresh Fruit, Bottled Juices, Coffee and Herbal Teas" },
+            { "name": "Traditional Breakfast", "desc": "Scrambled Eggs, Bacon, Turkey or Pork Sausage Links, Home Fried Potatoes, Hot Biscuits, Orange Juice, Coffee and Herbal Teas" },
+            { "name": "The Carolina Breakfast", "desc": "Scrambled Eggs, Bacon, Sausage Links, Home Fries, Buttered Grits, Hot Cakes, French Toast or Mini Belgian Waffles with Maple Syrup, Cereals, Danish and Muffins, Fresh Fruit and Berries, Juices, Coffee and Teas" },
+            { "name": "Sunday Brunch", "desc": "Scrambled Eggs, Bacon, Sausage Links, Home Fries, Cereals, Mini Quiche, Grilled Marinated Chicken Breast, Steamed Vegetable Medley, Muffins, Danish, Breakfast Breads, Sliced Fruit, Waffle or Omelet Station, Juices, Coffee and Teas" },
+            { "name": "Ram Special Breakfast", "desc": "Scrambled Eggs, Bacon, Sausage Links, Buttered Grits, Hot Cakes with Maple Syrup, Juices, Coffee and Teas" }
+          ]
+        },
+        {
+          "title": "Breakfast A La Carte",
+          "items": [
+            { "name": "Assorted Doughnuts" }, { "name": "Assorted Danish" }, { "name": "Assorted Muffins" },
+            { "name": "Bagels with Cream Cheese" }, { "name": "Filled Croissants" }, { "name": "Mini Scones" },
+            { "name": "Fruit Yogurts" }, { "name": "Sliced Fresh Fruit" }, { "name": "Fresh Fruit Salad" },
+            { "name": "Half Pint of Milk" }, { "name": "Bottled Juices" }, { "name": "Regular or Decaf Coffee" },
+            { "name": "Assorted Tea Bags with Hot Water" }
+          ]
+        },
+        {
+          "title": "Cold Luncheons",
+          "items": [
+            { "name": "Boxed Lunches", "desc": "Ham, Turkey, Roast Beef, Grilled Vegetables, Chicken Salad or Tuna Salad on Croissant, Kaiser Roll or Multigrain, with Chips, Whole Fruit, Cookies and a Bottled Beverage" },
+            { "name": "Gourmet Cold Lunches", "desc": "Smoked Turkey, Corned Beef, Pastrami, Black Forest Ham or Gourmet Chicken Salad on upscale breads, wraps or baguette, with Chips, Pretzels, Cookies, Fruit Salad, Candy, Nuts or a Bottled Beverage" },
+            { "name": "Cold Lunch Buffet", "desc": "Sliced Ham, Turkey and Roast Beef with Rolls, Swiss and American Cheese, Lettuce, Tomatoes, Pickles and Onions, Potato Salad, Coleslaw or Pasta Salad, and Cookies, Brownies or Blondies" },
+            { "name": "Caesar Salad", "desc": "Romaine, Croutons and Parmesan with Warm Rolls, Whole Fruit, Cookies and Beverages" },
+            { "name": "Vegetable Garden", "desc": "Spinach and Mushroom Salad with Vinaigrette, Broccoli Florets, Chilled Tortellini Salad, Herb Pita Triangles, Fruit Salad and Beverages" },
+            { "name": "Pineapple Boat", "desc": "Shrimp Salad and Chicken Salad on a Pineapple Boat with Pasta Salad, Fruit, Rolls, Dessert and Iced Tea" },
+            { "name": "Blackened Salmon Salad", "desc": "Mixed Greens with Honey Mustard Dressing, Dessert and Iced Tea" },
+            { "name": "Jumbo Shrimp and Grilled Chicken", "desc": "Mixed Greens in a Crisp Tortilla Shell with Bleu Cheese Crumbles, Rolls, Dessert and Iced Tea" }
+          ]
+        },
+        {
+          "title": "Lunch & Dinner Entrées",
+          "note": "Choose one salad, one starch or vegetable, and one entrée. A chef's choice vegetarian entrée is available with all buffets.",
+          "items": [
+            { "name": "Pasta", "desc": "Meat, Ground Turkey or Vegetarian Lasagna" },
+            { "name": "Poultry", "desc": "Grilled Praline Pecan Chicken Breast, Roasted Cornish Hen with Dijon Glaze, Chicken Asiago with Roasted Pepper Sauce, Rotisserie, Barbecued or Baked Chicken, Grilled Cajun Chicken Breast, Chicken Parmesan" },
+            { "name": "Beef and Lamb", "desc": "Roasted Prime Rib with Au Jus, Grilled Tournedos of Beef Tenderloin, Grilled Marinated Flank Steak, Veal Chops, Grilled Lamb Chops" },
+            { "name": "Seafood", "desc": "Herb Crusted or Lemon Pepper Cod, Seared Marinated Salmon, Jumbo Shrimp Scampi over Fiesta Rice or Fettuccine, Cajun or Lemon Pepper Catfish" },
+            { "name": "Combination Entrée", "desc": "Grilled Chicken with Salmon, Grilled Chicken with Beef Tenderloin, or Salmon with Beef Tenderloin" },
+            { "name": "Salads", "desc": "Tossed Garden, Spinach and Mushroom with Warm Bacon Dressing, Baby Field Greens, Caesar, Tomato Basil Cucumber, Pasta Salad, Fresh Fruit Salad" },
+            { "name": "Starches & Vegetables", "desc": "Pasta in Herb Butter, Rice Pilaf, Cheese Ravioli, Wild Rice, Saffron Rice, Roasted Potatoes, Collard Greens, Garlic Basil Mashed Potatoes, Baked Mac and Cheese, Green Beans Almondine, Far East Stir Fry, Corn O'Brien, Squash, Basmati Rice or Mushroom Risotto, Glazed Carrots, Roasted Red Potatoes, Baby Asparagus, Seasonal Vegetables" }
+          ]
+        },
+        {
+          "title": "Desserts",
+          "items": [
+            { "name": "Cakes & Tortes", "desc": "Black Forest, Carrot, German Chocolate, Strawberry Romanoff, White Chocolate Mousse, Chocolate Grand Marnier, Lemon Raspberry Torte, Passion Fruit Strawberry Torte, Caramelized Pear Torte, Triple Chocolate Wild Berry Torte" },
+            { "name": "Cheesecakes", "desc": "New York Style, Raspberry White Chocolate, Individual Fruit Cheesecake" },
+            { "name": "Classics", "desc": "Warm Fruit Cobbler, Bread Pudding, Sweet Potato Pie (seasonal), Strawberry Shortcake, Fresh Fruit Tarts, Tiramisu, Chocolate or White Chocolate Mousse, Fresh Fruit Napoleon" }
+          ]
+        },
+        {
+          "title": "Hors d'Oeuvres",
+          "items": [
+            { "name": "Vegetarian", "desc": "Vegetable Crudités with Dip, Grilled Marinated Vegetables, Fruit and Berries, Tomato Basil Bruschetta, Cheese and Crackers, Cocktail and Tea Sandwiches, Mini Egg Rolls, Mini Quiche, Vegetable Quesadillas, Spanakopita, Boursin on Endive, Raspberry and Brie in Phyllo" },
+            { "name": "Poultry", "desc": "Turkey or Vegetable Tortilla Wraps, Honey Chicken Drumettes or Wings, Southwest Chicken Quesadillas, Tandoori, Thai or Satay Chicken Skewers, Chicken Brochette, Chicken Duxelles en Croute, Rumaki" },
+            { "name": "Seafood", "desc": "Shrimp Cocktail, Poached Salmon Display, Seafood Spring Rolls, Petite Crab Cakes, Coconut Shrimp, Bacon-Wrapped Scallops, Smoked Salmon Bruschetta" },
+            { "name": "Beef", "desc": "Barbecued, Sweet & Sour or Swedish Meatballs, Beef Brochette, Beef Duxelles en Croute, Mini Reubens" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "platinum",
+      "name": "Flair Platinum",
+      "tagline": "Themed buffets, receptions and plated dinners for galas",
+      "sections": [
+        {
+          "title": "Themed Buffets",
+          "items": [
+            { "name": "Tex-Mex Buffet", "desc": "Tortilla Soup, Taco Salad Station, Southwest Cedar Tilapia with Chimichurri, Beef Burritos, Refried Beans, Spanish Rice, Crème Caramel, Key Lime Cheesecake, Sopaipillas" },
+            { "name": "Italian Buffet", "desc": "Minestrone, Capellini Pomodoro Salad, Spinach and Pancetta Salad, Tomato Mozzarella Basil, Chicken Marsala, Baked Rigatoni with Italian Sausage, Cannellini Beans, Vegetable Medley, Herb Focaccia, Tiramisu, Panna Cotta" },
+            { "name": "Carolina Buffet", "desc": "Pimento Potato Salad, Tangy Macaroni Salad, Southern Fried Chicken, Pulled Pork BBQ with Buns, BBQ Slaw, Hushpuppies, Macaroni and Cheese, Molasses Baked Beans, Warm Peach Cobbler, Chocolate Peanut Butter Pie" },
+            { "name": "Asian Buffet", "desc": "Cucumber and California Rolls, Sesame Noodle Salad, Grilled Sesame Chicken over Greens, Beef and Broccoli Stir Fry, Egg and Vegetable Fried Rice, Caramel Flan, Coconut Macaroons, Fortune Cookies" },
+            { "name": "Southern California Buffet", "desc": "Baked Potato Bar, Salad Bar, Grilled Salmon Spinach Salad, Grilled Hanger Steak over Greens, Blackened Chicken Salad, Shrimp and Scallop Pasta Salad, Fruit Salad, Rolls, Panna Cotta, Mini Éclairs, Cream Puffs, Pecan Tartlets, Brownies" }
+          ]
+        },
+        {
+          "title": "Reception Packages",
+          "items": [
+            { "name": "Silver Reception", "desc": "Five hors d'oeuvres per person, one specialty station, one carving station, one hors d'oeuvres station" },
+            { "name": "Gold Reception", "desc": "Five hors d'oeuvres per person, one specialty station, one carving station, two hors d'oeuvres stations, one dessert station" },
+            { "name": "Platinum Reception", "desc": "Six hors d'oeuvres per person, one specialty station, two carving stations, a seafood display, two hors d'oeuvres stations, one dessert station" }
+          ]
+        },
+        {
+          "title": "Carving & Specialty Stations",
+          "items": [
+            { "name": "Carving Station", "desc": "Pepper Crusted Pastrami, Macadamia Crusted Beef Tenderloin, Herb Roasted Pork Loin, Sage and Garlic Turkey Breast, Roasted Top Round, Honey Glazed Ham, or Steamship of Beef" },
+            { "name": "Pasta Station", "desc": "Spinach Walnut Ravioli with Boursin Sauce and Fusilli with Basil Marinara" },
+            { "name": "Fajita Station", "desc": "Beef, Shrimp or Chicken with Flour Tortillas" },
+            { "name": "Quesadilla Station", "desc": "Beef, Chicken or Shrimp with Cheddar, Monterey Jack, Jalapeños, Salsa, Sour Cream and Guacamole" },
+            { "name": "Crab Cake Station", "desc": "Jumbo Lump Crab Cakes with Cajun Rémoulade" },
+            { "name": "Shrimp and Grits Station", "desc": "Stone Ground Grits with Jumbo Shrimp, Tasso Ham and Scallions" },
+            { "name": "Salad Station", "desc": "Caesar in Parmesan Bowls and Spinach Salad with Warm Bacon Dressing" },
+            { "name": "Lettuce Wrap Station", "desc": "Asian Chicken with Ginger and Shiitake, and Buffalo Chicken with Blue Cheese" },
+            { "name": "Mashed Potato Bar", "desc": "Garlic Herb and Red Bliss Mashed Potatoes with toppings and Gravy" }
+          ]
+        },
+        {
+          "title": "Dessert Stations",
+          "items": [
+            { "name": "Flambé Station", "desc": "Bananas Foster or Cherries Jubilee with Vanilla Ice Cream" },
+            { "name": "Crêpes Station", "desc": "Crêpes Suzette or Crêpes Normandy" },
+            { "name": "Cheesecake Station", "desc": "New York Style with Berries, Chocolate, Raspberry Swirl, Crème Brûlée" },
+            { "name": "Chocolate Fountain", "desc": "Strawberries, Bananas, Pineapple, Apricots, Pretzels and Marshmallows" },
+            { "name": "Ice Cream Sundae Bar", "desc": "Vanilla, Chocolate and Strawberry with Hot Fudge, Caramel and toppings" },
+            { "name": "Plated Desserts", "desc": "Berry Cream Flan, White Chocolate Éclair Torte, Crème Brûlée Cheesecake, Raspberry Chocolate Cheesecake, Peanut Butter Chocolate Blast, Chocolate Mousse Pyramid, Triple Chocolate Mousse" }
+          ]
+        },
+        {
+          "title": "Plated Dinners",
+          "note": "Chef's choice of seasonal vegetables and starch comes with every entrée.",
+          "items": [
+            { "name": "Soups", "desc": "Shrimp Bisque, Potato Leek, New England Clam Chowder, Butternut Squash with Apples, Chicken Consommé, Lentil Vegetable with Duck, French Onion" },
+            { "name": "Salads", "desc": "House Salad in Cucumber Wrap, Iceberg Wedge, Caesar, Grilled Portobello and Field Greens, Spinach Salads, Field Greens with Hearts of Palm and Goat Cheese" },
+            { "name": "Chicken", "desc": "Pan Seared with Orange Beurre Blanc, Chicken Wellington, Dijon Crusted, Brie and Apple Stuffed, Grilled with Apricot Bourbon Glaze" },
+            { "name": "Beef", "desc": "Classic Tournedos, Crab-Stuffed Filet, Macadamia Crusted Tenderloin, Filet Mignon and Lobster Tail" },
+            { "name": "Seafood", "desc": "Seafood Brioche, Salmon with Lemon Dill Cream, Pan Seared Grouper, Chilean Sea Bass with Tropical Salsa" },
+            { "name": "Other Meats", "desc": "Bone-in Pork Chop, Grilled Veal Loin, Herb Crusted Rack of Lamb, Smoked Venison Tenderloin" },
+            { "name": "Combination Entrées", "desc": "Pick two: Chicken (Sun-Dried Tomato Pesto, Chicken Roulade, Brie and Apple), Seafood (Salmon, Sea Bass, Twin Crab Cakes, Shrimp Skewers), Beef (Tenderloin, Twin Medallions, Bacon-Wrapped Filet)" }
+          ]
+        }
+      ]
+    }
+  ]
+}

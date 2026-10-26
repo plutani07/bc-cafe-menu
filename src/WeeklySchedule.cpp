@@ -1,21 +1,9 @@
 #include "WeeklySchedule.h"
 #include <iostream>
-#include <fstream>
-#include <sstream>
-#include <ctime>
 using namespace std;
 
-static const string DAY_NAMES[7] = {"Sunday", "Monday", "Tuesday", "Wednesday",
-                                    "Thursday", "Friday", "Saturday"};
-
-WeeklySchedule::WeeklySchedule() {
-    for (int i = 0; i < 7; i++) days[i] = DailyMenu(DAY_NAMES[i]);
-}
-
-string WeeklySchedule::dayName(int index) {
-    if (index < 0 || index > 6) return "";
-    return DAY_NAMES[index];
-}
+const string WeeklySchedule::DAY_NAMES[7] = {"Monday", "Tuesday", "Wednesday", "Thursday",
+                                             "Friday", "Saturday", "Sunday"};
 
 int WeeklySchedule::dayIndex(string name) {
     for (int i = 0; i < 7; i++) {
@@ -24,61 +12,8 @@ int WeeklySchedule::dayIndex(string name) {
     return -1;
 }
 
-int WeeklySchedule::todayIndex() {
-    time_t now = time(nullptr);
-    tm* local = localtime(&now);
-    return local->tm_wday;   // 0 = Sunday
-}
-
-// File format, one item per line:
-// Day|Meal|Name|Calories|ingredient1,ingredient2,...
-bool WeeklySchedule::loadFromFile(string filename) {
-    ifstream file(filename);
-    if (!file) return false;
-
-    string line;
-    int lineNum = 0;
-    while (getline(file, line)) {
-        lineNum++;
-        if (line.empty() || line[0] == '#') continue;   // skip blanks/comments
-
-        stringstream ss(line);
-        string day, meal, name, calText, ingText;
-        getline(ss, day, '|');
-        getline(ss, meal, '|');
-        getline(ss, name, '|');
-        getline(ss, calText, '|');
-        getline(ss, ingText);
-
-        MenuItem item(name);
-        int cal = 0;
-        try { cal = stoi(calText); } catch (...) { cal = -1; }
-        if (!item.setCalories(cal)) {
-            cout << "  (skipped line " << lineNum << ": " << name << ")" << endl;
-            continue;
-        }
-
-        vector<string> ingredients;
-        stringstream is(ingText);
-        string ing;
-        while (getline(is, ing, ',')) {
-            if (!ing.empty()) ingredients.push_back(ing);
-        }
-        item.setIngredients(ingredients);
-
-        if (!addItem(day, meal, item)) {
-            cout << "  (skipped line " << lineNum << ": bad day or meal)" << endl;
-        }
-    }
-    return true;
-}
-
-bool WeeklySchedule::saveToFile(string filename) const {
-    ofstream file(filename);
-    if (!file) return false;
-    file << "# Day|Meal|Name|Calories|Ingredients\n";
-    for (int i = 0; i < 7; i++) days[i].writeTo(file);
-    return true;
+WeeklySchedule::WeeklySchedule() {
+    for (int i = 0; i < 7; i++) days[i] = DailyMenu(DAY_NAMES[i]);
 }
 
 bool WeeklySchedule::addItem(string day, string meal, MenuItem item) {
@@ -87,9 +22,16 @@ bool WeeklySchedule::addItem(string day, string meal, MenuItem item) {
     return days[i].addItem(meal, item);
 }
 
-void WeeklySchedule::displayToday() const {
-    cout << "Today is " << dayName(todayIndex()) << "." << endl << endl;
-    days[todayIndex()].display();
+DailyMenu WeeklySchedule::getDay(string day) const {
+    int i = dayIndex(day);
+    if (i == -1) return DailyMenu();
+    return days[i];
+}
+
+int WeeklySchedule::itemCount() const {
+    int total = 0;
+    for (int i = 0; i < 7; i++) total += days[i].itemCount();
+    return total;
 }
 
 void WeeklySchedule::displayDay(string day) const {
@@ -105,15 +47,63 @@ void WeeklySchedule::displayWeek() const {
     for (int i = 0; i < 7; i++) days[i].display();
 }
 
-void WeeklySchedule::searchIngredient(string ingredient) const {
-    bool any = false;
-    for (int i = 0; i < 7; i++) {
-        if (days[i].displayIfContains(ingredient)) any = true;
+// Lists each matching item once, with every day/meal it's served this week.
+// Everyday items (like Pizza) would otherwise print 14 times.
+void WeeklySchedule::search(string text) const {
+    vector<MenuItem> found;
+    vector<string> when;
+
+    for (int d = 0; d < 7; d++) {
+        for (int m = 0; m < 4; m++) {
+            string meal = DailyMenu::MEAL_NAMES[m];
+            vector<MenuItem> list = days[d].getMeal(meal);
+            for (size_t i = 0; i < list.size(); i++) {
+                if (!list[i].matches(text)) continue;
+                string label = DAY_NAMES[d].substr(0, 3) + " " + meal;
+                bool merged = false;
+                for (size_t f = 0; f < found.size(); f++) {
+                    if (found[f].getName() == list[i].getName() &&
+                        found[f].getStation() == list[i].getStation()) {
+                        if (when[f].find(label) == string::npos) when[f] += ", " + label;
+                        merged = true;
+                        break;
+                    }
+                }
+                if (!merged) {
+                    found.push_back(list[i]);
+                    when.push_back(label);
+                }
+            }
+        }
     }
-    if (!any) cout << "No items contain \"" << ingredient << "\"." << endl;
+
+    if (found.empty()) {
+        cout << "Nothing this week matches \"" << text << "\"." << endl;
+        return;
+    }
+    cout << found.size() << " match(es) for \"" << text << "\":" << endl;
+    for (size_t f = 0; f < found.size(); f++) {
+        cout << " " << found[f].getName() << "  (" << found[f].getStation() << ")" << endl;
+        cout << "    " << when[f] << endl;
+    }
 }
 
 void WeeklySchedule::filterByCalories(int limit) const {
-    cout << "Items at or under " << limit << " calories:" << endl;
-    for (int i = 0; i < 7; i++) days[i].displayUnderCalories(limit);
+    int shown = 0;
+    for (int d = 0; d < 7; d++) {
+        for (int m = 0; m < 4; m++) {
+            vector<MenuItem> list = days[d].getMeal(DailyMenu::MEAL_NAMES[m]);
+            for (size_t i = 0; i < list.size(); i++) {
+                if (list[i].hasCalories() && list[i].getCalories() <= limit) {
+                    cout << " [" << DAY_NAMES[d] << " " << DailyMenu::MEAL_NAMES[m] << "]" << endl;
+                    list[i].display();
+                    shown++;
+                }
+            }
+        }
+    }
+    if (shown == 0) {
+        cout << "No items at or under " << limit << " calories. "
+             << "(The Perkins menu doesn't list calories; items added with calories will show here.)" << endl;
+    }
 }

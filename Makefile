@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra -Isrc
-LIB = src/MenuItem.cpp src/DailyMenu.cpp src/WeeklySchedule.cpp
+LIB = src/MenuItem.cpp src/DailyMenu.cpp src/WeeklySchedule.cpp src/MenuCycle.cpp
 
 all: cafe run_tests
 

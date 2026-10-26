@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>BC Cafe Menu</title>
-  <meta name="description" content="What the Benedict College cafe is serving today.">
+  <meta name="description" content="What the Benedict College dining hall is serving today.">
   <meta name="theme-color" content="#1a1124">
   <link rel="preload" href="fonts/Manrope-Variable.woff" as="font" type="font/woff" crossorigin>
   <link rel="icon" type="image/png" href="img/bc-logo.png">
@@ -18,7 +18,7 @@
   <!-- HERO -->
   <header class="hero" id="top">
     <nav class="nav wrap">
-      <a class="brand" href="#top" aria-label="BC Cafe home">
+      <a class="brand" href="index.html" aria-label="BC Cafe home">
         <img class="logo" src="img/bc-logo.png" alt="" width="44" height="44">
         <span>BC Cafe</span>
       </a>
@@ -26,6 +26,7 @@
         <a href="#menu" data-jump="today">Today</a>
         <a href="#menu" data-jump="week">This Week</a>
         <a href="#menu" data-jump="search">Search</a>
+        <a href="catering.html">Catering</a>
         <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
         </button>
@@ -36,7 +37,7 @@
       <div class="hero-copy">
         <p class="kicker" id="heroDate">Benedict College</p>
         <h1><strong>Today's menu</strong> is<br>ready when you are</h1>
-        <p class="lede">See what the BC Cafe is serving for breakfast, lunch, and dinner. Search by ingredient or keep it under a calorie count.</p>
+        <p class="lede">Everything the College Dining Hall is serving, station by station. Pick a meal, check the week, or search for a dish you're craving.</p>
         <div class="hero-actions">
           <a class="btn btn-gold" href="#menu" data-jump="today">See today's menu</a>
           <a class="btn btn-ghost" href="#menu" data-jump="week">Full week</a>
@@ -54,59 +55,58 @@
   </header>
 
   <main id="menu" class="wrap">
-    <!-- Featured banner (like the app's promo card) -->
+    <!-- Featured banner -->
     <section class="feature" id="feature" hidden>
       <div class="feature-copy">
-        <p class="feature-label" id="featureLabel">Today's lunch</p>
+        <p class="feature-label" id="featureLabel">Plant-based pick</p>
         <h2 id="featureName">—</h2>
         <button class="pill-light" id="featureBtn" type="button">View details</button>
       </div>
       <div class="feature-art" id="featureArt" aria-hidden="true"></div>
     </section>
 
-    <!-- Day picker -->
+    <!-- Rotation week -->
     <div class="section-head">
-      <h2 id="dayTitle">Monday</h2>
+      <h2 id="dayTitle">Today</h2>
       <button class="link-btn" id="weekToggle" type="button">View week</button>
     </div>
+    <div class="weeks" id="weekTabs" role="tablist" aria-label="Menu cycle week"></div>
     <div class="days" id="dayTabs" role="tablist" aria-label="Day of the week"></div>
 
-    <!-- Search + calories -->
+    <!-- Search + vegetarian -->
     <div class="filters">
       <label class="search">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <input id="search" type="search" placeholder="Search ingredients" autocomplete="off" aria-label="Search ingredient">
+        <input id="search" type="search" placeholder="Search dishes or ingredients" autocomplete="off" aria-label="Search dishes or ingredients">
       </label>
-      <label class="cal-filter">
-        <span>Under</span>
-        <input id="maxCal" type="number" min="10" max="1000" step="50" placeholder="any" aria-label="Maximum calories">
-        <span>cal</span>
-      </label>
+      <button class="toggle" id="vegToggle" type="button" aria-pressed="false">
+        <span aria-hidden="true">🌱</span> Plant-based
+      </button>
     </div>
 
     <!-- Meal chips -->
-    <div class="section-head small">
-      <h3>Meals</h3>
-    </div>
     <div class="chips" id="mealChips"></div>
 
     <div id="results" aria-live="polite"></div>
+
+    <p class="source-note">From the Perkins College Dining Hall 4-week menu cycle. Items can change; calories aren't listed on the Perkins menu.</p>
   </main>
 
   <footer class="footer">
     <div class="wrap footer-grid">
       <div>
-        <a class="brand" href="#top">
-        <img class="logo" src="img/bc-logo.png" alt="" width="44" height="44">
+        <a class="brand" href="index.html">
+          <img class="logo" src="img/bc-logo.png" alt="" width="44" height="44">
           <span>BC Cafe</span>
         </a>
-        <p class="muted">The Benedict College cafe menu, updated from the same <code>menu.txt</code> our C++ program reads.</p>
+        <p class="muted">The Benedict College dining hall menu, built from the same <code>menu.txt</code> our C++ program reads.</p>
       </div>
       <div>
         <h4>Menu</h4>
         <a href="#menu" data-jump="today">Today</a>
         <a href="#menu" data-jump="week">This week</a>
         <a href="#menu" data-jump="search">Search</a>
+        <a href="catering.html">Catering</a>
       </div>
       <div>
         <h4>Project</h4>
@@ -116,23 +116,27 @@
     </div>
   </footer>
 
-  <!-- Mobile bottom nav (like the app) -->
+  <!-- Mobile bottom nav -->
   <nav class="bottom-nav" aria-label="Quick navigation">
-    <button type="button" data-jump="today" class="active" aria-label="Today">
+    <button type="button" data-jump="today" class="active">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1v-8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
       <span>Today</span>
     </button>
-    <button type="button" data-jump="week" aria-label="This week">
+    <button type="button" data-jump="week">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 10h16M9 3v4M15 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
       <span>Week</span>
     </button>
-    <button type="button" data-jump="search" aria-label="Search">
+    <button type="button" data-jump="search">
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
       <span>Search</span>
     </button>
+    <a href="catering.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h18M5 17a7 7 0 0 1 14 0M12 7V5M10 5h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span>Catering</span>
+    </a>
   </nav>
 
-  <!-- Item detail sheet (like the app's detail screen) -->
+  <!-- Item detail sheet -->
   <div class="sheet-backdrop" id="sheetBackdrop" hidden></div>
   <section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetName" hidden>
     <div class="sheet-art" id="sheetArt">
@@ -143,18 +147,23 @@
     <div class="sheet-body">
       <h2 id="sheetName">—</h2>
       <p class="sheet-meta" id="sheetMeta"></p>
-      <h3>Calories</h3>
-      <div class="cal-meter"><div class="cal-fill" id="sheetCalFill"></div></div>
-      <p class="cal-note" id="sheetCalNote"></p>
-      <h3>Ingredients</h3>
+      <div class="sheet-tags" id="sheetTags"></div>
+      <div id="sheetCalBlock" hidden>
+        <h3>Calories</h3>
+        <div class="cal-meter"><div class="cal-fill" id="sheetCalFill"></div></div>
+      </div>
+      <h3 id="sheetListTitle">Ingredients</h3>
       <ul class="sheet-ingredients" id="sheetIngredients"></ul>
+      <h3>When it's served</h3>
+      <p class="sheet-when" id="sheetWhenList"></p>
       <div class="sheet-bar">
-        <span id="sheetWhen">—</span>
-        <strong id="sheetCal">— cal</strong>
+        <span id="sheetStation">—</span>
+        <strong id="sheetCal"></strong>
       </div>
     </div>
   </section>
 
+  <script src="menu-data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
