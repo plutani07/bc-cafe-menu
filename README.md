@@ -39,6 +39,14 @@ g++ -std=c++17 -Isrc src/main.cpp src/MenuItem.cpp src/DailyMenu.cpp src/WeeklyS
 
 **Visual Studio:** add every `.cpp` in `src/` to the project, and put `menu.txt` in the project folder (the folder the program runs from).
 
+## Website
+
+`site/` is the website (HTML/CSS/JS, Manrope font in `site/fonts/`). It reads `menu.txt` and shows today's menu, any day, or the whole week, with ingredient search, a calorie filter, and a detail view for each item. GitHub Actions publishes it to GitHub Pages on every push to `main`.
+
+To add food photos, see `site/img/README.md`.
+
+To preview locally: copy `menu.txt` into `site/`, then run `python3 -m http.server` inside `site/` and open http://localhost:8000.
+
 ## Program options
 
 1. What's being served today
@@ -67,5 +75,5 @@ Tests run automatically on GitHub on every push — see the **Actions** tab for 
 src/        C++ classes and main.cpp
 tests/      test cases
 menu.txt    the menu data
-site/       the website (HTML/CSS/JS)
+site/       the website (HTML/CSS/JS, fonts, photos)
 ```
