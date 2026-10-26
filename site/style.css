@@ -99,7 +99,8 @@ svg { width: 22px; height: 22px; flex: none; }
   font-size: 1.35rem;
   letter-spacing: -.01em;
 }
-.brand svg { width: 28px; height: 28px; color: var(--gold); }
+.brand .logo { width: 44px; height: 44px; filter: drop-shadow(0 2px 6px rgba(0,0,0,.35)); }
+.brand span { line-height: 1.1; }
 .nav-links { display: flex; align-items: center; gap: 26px; }
 .nav-links a {
   text-decoration: none;
@@ -488,7 +489,8 @@ main { padding-top: 0; padding-bottom: 60px; }
   grid-template-columns: 2fr 1fr 1fr;
   gap: 32px;
 }
-.footer .brand svg { color: var(--gold); }
+.footer .brand { margin-bottom: 4px; }
+.footer .brand .logo { width: 52px; height: 52px; }
 .footer h4 { margin: 0 0 12px; font-size: .95rem; }
 .footer a:not(.brand) { display: block; text-decoration: none; opacity: .72; margin-bottom: 8px; font-size: .92rem; }
 .footer a:hover { opacity: 1; }
