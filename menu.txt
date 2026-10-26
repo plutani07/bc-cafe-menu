@@ -1,0 +1,19 @@
+# Day|Meal|Name|Calories|Ingredients
+Monday|Breakfast|Pancakes|450|Flour,Eggs,Milk,Syrup
+Monday|Lunch|Turkey Sandwich|500|Bread,Turkey
+Monday|Dinner|Spaghetti|650|Pasta,Tomato Sauce,Ground Beef
+Tuesday|Breakfast|Scrambled Eggs|300|Eggs,Butter,Cheese
+Tuesday|Lunch|Chicken Tenders|700|Chicken,Flour,Oil
+Tuesday|Dinner|Tacos|600|Tortilla,Ground Beef,Lettuce,Cheese
+Wednesday|Breakfast|Oatmeal|250|Oats,Milk,Brown Sugar
+Wednesday|Lunch|Cheeseburger|800|Bun,Beef Patty,Cheese,Lettuce
+Wednesday|Dinner|Baked Chicken|550|Chicken,Rice,Green Beans
+Thursday|Breakfast|Waffles|480|Flour,Eggs,Milk,Syrup
+Thursday|Lunch|Grilled Cheese|420|Bread,Cheese,Butter
+Thursday|Dinner|Fried Fish|720|Whiting,Cornmeal,Oil
+Friday|Breakfast|Breakfast Burrito|520|Tortilla,Eggs,Sausage,Cheese
+Friday|Lunch|Pizza|650|Dough,Tomato Sauce,Cheese,Pepperoni
+Friday|Dinner|Steak|500|Beef,Salt,Pepper
+Saturday|Lunch|Chicken Caesar Salad|380|Lettuce,Chicken,Parmesan,Croutons
+Sunday|Lunch|Fried Chicken|780|Chicken,Flour,Oil
+Sunday|Dinner|Mac and Cheese|600|Pasta,Cheese,Milk

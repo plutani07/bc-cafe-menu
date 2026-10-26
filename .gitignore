@@ -1,0 +1,9 @@
+cafe
+run_tests
+*.exe
+*.o
+test_save.txt
+.vs/
+x64/
+Debug/
+Release/

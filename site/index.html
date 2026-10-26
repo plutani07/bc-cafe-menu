@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BC Cafe Menu</title>
+  <meta name="description" content="What the Benedict College cafe is serving today.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <p class="eyebrow">Benedict College</p>
+      <h1>BC Cafe Menu</h1>
+      <p class="today-line" id="todayLine">Loading…</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="days" id="dayTabs" aria-label="Day of the week"></nav>
+
+    <section class="tools" aria-label="Filters">
+      <label class="field">
+        <span>Search ingredient</span>
+        <input id="search" type="search" placeholder="e.g. cheese" autocomplete="off">
+      </label>
+      <label class="field">
+        <span>Max calories</span>
+        <input id="maxCal" type="number" min="10" max="1000" step="10" placeholder="any">
+      </label>
+      <label class="check">
+        <input id="allWeek" type="checkbox">
+        <span>Search the whole week</span>
+      </label>
+    </section>
+
+    <div id="results" aria-live="polite"></div>
+  </main>
+
+  <footer class="wrap foot">
+    <p>CSC 138 · Team 4 · Menu data comes from <code>menu.txt</code>, the same file the C++ program reads.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
