@@ -5,6 +5,7 @@
 #include "MenuCycle.h"
 #include <iostream>
 #include <limits>
+#include <cstdlib>
 using namespace std;
 
 const string MENU_FILE = "menu.txt";
@@ -74,11 +75,67 @@ void addItemFromUser(MenuCycle& cycle) {
     else cout << "Added, but couldn't save to " << MENU_FILE << "." << endl;
 }
 
-int main() {
+
+void printUsage() {
+    cout << "Usage: cafe [options]        (no options = interactive menu)" << endl;
+    cout << "  --today               what's being served today" << endl;
+    cout << "  --day NAME            one day (e.g. Friday)" << endl;
+    cout << "  --week N              rotation week 1-4 (default: current week)" << endl;
+    cout << "  --all                 whole week (with --week, or current week)" << endl;
+    cout << "  --search TEXT         search dish or ingredient in that week" << endl;
+    cout << "  --max-calories N      items at or under N calories in that week" << endl;
+    cout << "  --help                show this message" << endl;
+}
+
+// Non-interactive mode: print the answer and exit. Returns the exit code.
+int runCommandLine(MenuCycle& cycle, int argc, char* argv[]) {
+    int week = MenuCycle::currentWeek();
+    string day = "", search = "";
+    bool today = false, all = false, haveCal = false;
+    int maxCal = 0;
+
+    for (int i = 1; i < argc; i++) {
+        string a = argv[i];
+        bool hasValue = (i + 1 < argc);
+        if (a == "--help" || a == "-h") { printUsage(); return 0; }
+        else if (a == "--today") today = true;
+        else if (a == "--all") all = true;
+        else if (a == "--day" && hasValue) day = capitalize(argv[++i]);
+        else if (a == "--week" && hasValue) week = atoi(argv[++i]);
+        else if (a == "--search" && hasValue) search = argv[++i];
+        else if (a == "--max-calories" && hasValue) { maxCal = atoi(argv[++i]); haveCal = true; }
+        else {
+            cerr << "Unknown or incomplete option: " << a << endl;
+            printUsage();
+            return 1;
+        }
+    }
+    if (week < 1 || week > 4) { cerr << "Week must be 1-4." << endl; return 1; }
+    if (today) day = MenuCycle::todayName();
+    if (!day.empty() && WeeklySchedule::dayIndex(day) == -1) {
+        cerr << "\"" << day << "\" isn't a day of the week." << endl;
+        return 1;
+    }
+
+    WeeklySchedule sched = cycle.getWeek(week);
+    if (!search.empty()) sched.search(search);
+    else if (haveCal) sched.filterByCalories(maxCal);
+    else if (!day.empty()) {
+        cout << "Week " << week << ", " << day << endl;
+        sched.displayDay(day);
+    }
+    else if (all) sched.displayWeek();
+    else { printUsage(); return 1; }
+    return 0;
+}
+
+int main(int argc, char* argv[]) {
     MenuCycle cycle;
     if (!cycle.loadFromFile(MENU_FILE)) {
         cout << "Couldn't find " << MENU_FILE << " - starting with an empty menu." << endl;
     }
+
+    if (argc > 1) return runCommandLine(cycle, argc, argv);
 
     int thisWeek = MenuCycle::currentWeek();
     string today = MenuCycle::todayName();
